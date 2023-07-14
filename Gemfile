@@ -70,4 +70,4 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "pg", "~> 1.5"
+gem 'pg', '~> 1.5'
