@@ -23,7 +23,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Title must not exceed 250 characters' do
-      @post.title = 'abc' * 100 ## post tile is more that 250 characters
+      @post.title = 'abc' * 100 ## post title is more than 250 characters
       expect(@post).to_not be_valid
     end
 
@@ -49,7 +49,7 @@ RSpec.describe Post, type: :model do
       expect(@post).to be_valid
     end
 
-    it 'should return less than 5 comments ' do
+    it 'should return less than 5 comments' do
       value = @post.recent_comments.length
       expect(value).to be < 5
     end
