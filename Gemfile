@@ -9,6 +9,9 @@ gem 'rails', '~> 7.0.6'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
+gem 'rspec-core', '~> 3.0'
+
+
 # Use sqlite3 as the database for Active Record
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -68,6 +71,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rspec-rails'
 end
 
 gem 'pg', '~> 1.5'
