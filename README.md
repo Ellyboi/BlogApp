@@ -125,9 +125,9 @@ Open your browser and navigate to:
 
 👤 **Vitoesi Elijah**
 
-- GitHub: [@Ellyboi](https://github.com/Ellyboi)
-- Twitter: [@Elijahvitoesi](https://twitter.com/Elijahvitoesi)
-- LinkedIn: [Vitoesi Elijah](https://www.linkedin.com/in/elijah-vitoesi/)
+- GitHub:[@Ellyboi](https://github.com/Ellyboi)
+- Twitter:[@Elijahvitoesi](https://twitter.com/Elijahvitoesi)
+- LinkedIn:[Vitoesi Elijah](https://www.linkedin.com/in/elijah-vitoesi/)
 
 <!-- FUTURE FEATURES -->
 
