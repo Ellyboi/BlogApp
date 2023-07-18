@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    # Placeholder code for displaying a form to create a new post
+    # Placeholder code for displaying a form to create a new posts
   end
 
   def create

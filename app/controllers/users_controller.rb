@@ -8,10 +8,10 @@ class UsersController < ApplicationController
   end
 
   def new
-    # Placeholder code for displaying a form to create a new user
+    # Placeholder code for displaying a form to create a new user....
   end
 
   def create
-    # Placeholder code for handling the creation of a new user
+    # Placeholder code for handling the creation of a new user.......
   end
 end
