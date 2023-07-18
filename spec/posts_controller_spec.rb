@@ -7,6 +7,7 @@ RSpec.describe 'PostsController', type: :request do
 
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:index)
+      expect(response.body).to include("Placeholder text for posts index")
     end
   end
 
@@ -16,6 +17,7 @@ RSpec.describe 'PostsController', type: :request do
 
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
+      expect(response.body).to include("Placeholder text for post 1")
     end
   end
 end
