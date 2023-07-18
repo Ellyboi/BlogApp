@@ -20,4 +20,3 @@ RSpec.describe 'PostsController', type: :request do
     end
   end
 end
-
