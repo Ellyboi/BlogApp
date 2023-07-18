@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  root 'home#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "users#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :users, only: [:show, :index] do
+    resources :posts, only: [:show, :index, :new, :create] do
+      resources :comments, only: [:new, :create]
+      resources :likes, only: [:create]
+    end
+  end
 end
