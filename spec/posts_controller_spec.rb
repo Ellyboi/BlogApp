@@ -16,7 +16,7 @@ RSpec.describe 'PostsController', type: :request do
 
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
-      expect(response.body).to include("Post Details")
+      expect(response.body).to include('Post Details')
     end
   end
 end

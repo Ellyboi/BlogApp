@@ -16,7 +16,7 @@ RSpec.describe 'UsersController', type: :request do
 
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
-      expect(response.body).to include("User Details")
+      expect(response.body).to include('User Details')
     end
   end
 end
