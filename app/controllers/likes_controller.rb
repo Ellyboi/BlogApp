@@ -15,4 +15,3 @@ class LikesController < ApplicationController
     # Placeholder code for handling the creation of a new like
   end
 end
-
