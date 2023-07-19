@@ -24,7 +24,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 🏖️🌍 Beyond Borders Blog <a name="about-project"></a>
+# 🏖️BlogApp <a name="about-project"></a>
 
 Welcome to **BlogApp**, the latest blog that give you latest update about sport, finance, health and technology
 
