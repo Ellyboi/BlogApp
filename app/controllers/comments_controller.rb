@@ -1,17 +1,23 @@
 class CommentsController < ApplicationController
-  def index
-    # Placeholder code for retrieving and displaying a list of comments
-  end
-
-  def show
-    # Placeholder code for retrieving and displaying a specific comment
-  end
-
   def new
-    # Placeholder code for displaying a form to create a new comment
+    @comment = Comment.new
   end
 
   def create
-    # Placeholder code for handling the creation of a new comment
+    @comment = Comment.new(comment_params)
+    @comment.author = current_user
+    @comment.post = Post.find(params[:post_id])
+
+    if @comment.save
+      redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id])
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text)
   end
 end

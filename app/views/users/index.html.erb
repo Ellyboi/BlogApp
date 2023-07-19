@@ -1,2 +1,5 @@
-<h1>List of Users</h1>
-<!-- Placeholder code to display a list of users -->
+<section class="container-fluid mt-3">
+  <ul class="list-group">
+    <%= render partial: "shared/user", collection: @users, as: :user %>
+  </ul>
+</section>
