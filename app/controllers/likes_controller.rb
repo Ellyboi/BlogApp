@@ -1,17 +1,13 @@
 class LikesController < ApplicationController
-  def index
-    # Placeholder code for retrieving and displaying a list of likes
-  end
-
-  def show
-    # Placeholder code for retrieving and displaying a specific like
-  end
-
-  def new
-    # Placeholder code for displaying a form to create a new like
-  end
-
   def create
-    # Placeholder code for handling the creation of a new like
+    @like = Like.new
+    @like.author = current_user
+    @like.post = Post.find(params[:post_id])
+
+    if @like.save
+      redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id])
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 end

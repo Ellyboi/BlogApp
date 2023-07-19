@@ -1,2 +1,22 @@
-<h1>List of Posts</h1>
-<!-- Placeholder code to display a list of posts -->
+<section class="container-fluid mt-3">
+  <ul class="list-group my-1">
+    <%= render 'shared/user', user: @user %>
+  </ul>
+
+  <div>
+    <% @posts.each do |post| %>
+      <div class="mb-5 posts_comments">
+        <%= link_to user_post_path(user_id: post.author.id, id: post.id), class: 'post_details' do %>
+          <%= render 'shared/post', post: post %>
+        <% end %>
+        <div class="card">
+          <%= render 'shared/comment', post: post %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="d-flex justify-content-center my-2">
+    <button type="button" class="btn btn-outline-dark">Pagination</button>
+  </div>
+</section>

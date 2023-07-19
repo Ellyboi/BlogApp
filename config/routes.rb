@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index] do
     resources :posts, only: [:show, :index, :new, :create] do
+      resources :commets, only: [:new, :create]
+      resources :likes, only: [:create]
     end
   end
 end
