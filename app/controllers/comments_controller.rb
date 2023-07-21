@@ -4,9 +4,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])  # Find the corresponding post based on the :post_id param
-    @user = User.find(params[:user_id])  # Find the corresponding user based on the :user_id param
-
+    @post = Post.find(params[:post_id])
+    @user = User.find(params[:user_id])
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
 
