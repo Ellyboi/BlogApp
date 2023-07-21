@@ -30,7 +30,7 @@ Welcome to **BlogApp**, the latest blog that give you latest update about sport,
 
 
 ## ERD diagram
-#### The structure of Beyond Borders application is based on the ERD diagram below:
+#### The structure of BlogApp application is based on the ERD diagram below:
 <img src="https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/images/blog_app_erd.png">
 
 
@@ -94,7 +94,7 @@ Ensure you have Ruby installed on your system. You can check by running the code
 ```
 ### Setup
 
-Clone or download the Beyond Borders repository to your local machine.
+Clone or download the BlogApp repository to your local machine.
 ```sh
   git https://github.com/Ellyboi/BlogApp
 ```
