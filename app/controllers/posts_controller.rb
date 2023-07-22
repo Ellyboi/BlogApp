@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:author, :comments, :likes).find(params[:id])
+    @comment = Comment.new # To create a new comment on the post
   end
 
   def new
