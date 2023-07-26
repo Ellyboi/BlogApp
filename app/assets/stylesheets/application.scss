@@ -14,7 +14,8 @@ $yellow: #75f12c;
 $light-grey: #abc0a8;
 $sky-blue: #b6f1b1;
 $black: #27770e;
-$white: #ffffff;
+$white: #fff;
+$blue: #010427;
 
 * {
   margin: 0;
@@ -93,7 +94,7 @@ main {
       flex-wrap: wrap;
 
       .user-photo {
-        background-color: $yellow;
+        background-color: $blue;
         height: 80px;
         flex-basis: 80px;
         margin-right: 20px;
