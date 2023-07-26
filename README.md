@@ -129,6 +129,11 @@ Open your browser and navigate to:
 - Twitter:[@Elijahvitoesi](https://twitter.com/Elijahvitoesi)
 - LinkedIn:[Vitoesi Elijah](https://www.linkedin.com/in/elijah-vitoesi/)
 
+👤 **Christian Onoh**
+
+- GitHub: [@christianonoh](https://github.com/christianonoh)
+- LinkedIn: [Christian Onoh](https://www.linkedin.com/in/christianonoh)
+
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
