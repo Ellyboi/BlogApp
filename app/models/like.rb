@@ -1,10 +1,17 @@
 class Like < ApplicationRecord
+  belongs_to :user, foreign_key: 'author_id'
   belongs_to :post
-  belongs_to :author, class_name: 'User'
 
-  after_create :update_post_likes_counter
+  after_create :increment_like_count
+  after_destroy :decrement_like_count
 
-  def update_post_likes_counter
-    post.update_likes_counter
+  def increment_like_count
+    puts 'Incrementing likes count'
+    post.increment!(:likes_counter)
+  end
+
+  def decrement_like_count
+    puts 'Decrementing likes count'
+    post.decrement!(:likes_counter)
   end
 end
