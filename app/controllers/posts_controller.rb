@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:author, :comments, :likes).order(created_at: :asc)
+    @user = User.includes(posts: { comments: :user }).find(params[:user_id])
+    @posts = @user.posts
   end
 
   def show
-    @post = Post.includes(:author, :comments, :likes).find(params[:id])
-    @comment = Comment.new # To create a new comment on the post
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -14,15 +13,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.author = current_user
-    @post.comments_counter = 0
-    @post.likes_counter = 0
+    @post = current_user.posts.build(post_params)
 
     if @post.save
+      flash[:success] = 'Post created successfully'
       redirect_to user_posts_path(current_user)
     else
-      render :new, status: :unprocessable_entity
+      flash.now[:error] = 'Post creation failed'
+      render :new
     end
   end
 

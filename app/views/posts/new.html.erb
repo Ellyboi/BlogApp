@@ -1,20 +1,7 @@
-<section class="container mt-3">
-  <div>
-    <h1>New Post</h1>
-  </div>
-  <%= form_with model: @post, url: user_posts_path(user_id: current_user.id), local: true, class: "form" do |form| %>
-    <%= csrf_meta_tags %>
-    <div class="mb-3">
-      <label for="post_title" class="form-label">Title</label>
-      <input type="text" name="post[title]" class="form-control" id="post_title" placeholder="Post title" required>
-    </div>
-    <div class="mb-3">
-      <label for="post_text" class="form-label">Text</label>
-      <textarea name="post[text]" class="form-control" id="post_text" rows="3" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-outline-dark">Submit</button>
-  <% end %>
-  <div class="d-flex justify-content-center">
-    <%= link_to 'All posts', user_posts_path(current_user) %>
-  </div>
-</section>
+<%= form_with model: @post, url: user_posts_path(current_user), local: true do |form| %>
+  <%= form.text_field :title, placeholder: 'Post Title' %>
+  <%= form.text_area :text, placeholder: 'Post Content' %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.submit 'Create Post' %>
+<% end %>
+

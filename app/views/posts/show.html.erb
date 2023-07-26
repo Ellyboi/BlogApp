@@ -1,22 +1,40 @@
-<section class="container-fluid mt-3">
-  <div class="card border border-black">
-    <div class="card-body">
-      <div class="card-title d-flex justify-content-between">
-        <h5 class="card-title"><%= @post.title %> by <%= @post.author.name %></h5>
-        <h6 class="card-title">
-          <small class="d-flex flex-wrap align-items-center">
-            <%= form_with model: @like, url: user_post_likes_path(user_id: @post.author.id, post_id: @post.id), local: true do |form| %>
-              <button type="submit" class="fa fa-heart-o pe-3 border border-0 btn"></button>
-            <% end %>
-            <span class="card-title pe-3">Comments: <%= @post.comments_counter %></span>
-            <span class="card-title pe-3">Likes: <%= @post.likes_counter %></span>
-          </small>
-        </h6>
-      </div>
-      <p class="card-text"><%= @post.text %></p>
-    </div>
+<section class="post-page">
+  <div class="post-info">
+    <p><span><%= @post.title %></span> by <strong><a href="/users/<%= @post.user.id %> %>"><%= @post.user.name %></a></strong></p>
+    <span class="interactions">
+      <p>Comments: <%= @post.comments_counter %></p>
+      <p>Likes: <%= @post.likes_counter %></p>
+    </span>
   </div>
-  <div class="card border border-black">
-    <%= render "shared/comment", post: @post %>
+  <p class="post-content"><%= @post.text %></p>
+  <div class="like_and_comment_container">
+  <% if current_user.likes?(@post) %>
+    <%= form_with(model: @like, url: user_post_likes_path(post_id: @post.id, id: @like), method: :delete) do |form| %>
+      <%= form.button type: :submit, class: "btn" do %>
+        Unlike
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |form| %>
+      <%= form.button type: :submit, class: "btn" do %>
+        Like
+      <% end %>
+    <% end %>
+  <% end %>
+
+    <%= form_with(model: current_user.comments.build, url: user_post_comments_path(@post.user, @post)) do |form| %>
+      <%= form.text_area :text, placeholder: 'Add a comment' %>
+      <%= form.button type: :submit, class: "btn" do %>
+        Comment
+      <% end %>
+    <% end %>
   </div>
+  <ul class="comments">
+    <% @post.comments.each do |comment| %>
+      <li>
+        <p><strong><a href="/users/<%= comment.user.id %> %>"><%= comment.user.name %></a>:</strong> <%= comment.text %></p>
+      </li>
+    <% end %>
+  </ul>
+  
 </section>

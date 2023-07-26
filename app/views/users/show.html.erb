@@ -1,20 +1,40 @@
-<section class="container-fluid mt-3">
-  <ul class="list-group my-1">
-    <%= render "shared/user", user: @user %>
-  </ul>
-  <div class="card border border-black">
-    <div class="card-body">
-      <h5 class="card-title">Bio</h5>
-      <p class="card-text"><%= @user.bio %></p>
+<section class="user-profile">
+  <div class="user">
+    <div class="user-photo">
+      <img src="<%= @user.valid_image_url?(@user.photo) %>">
     </div>
+    <ul class="user-info">
+      <li class="user-name"><%= @user.name %></li>
+      <li class="post-count"><%= @user.posts_counter %> posts</li>
+    </ul>
+    <p class="bio">Bio: <%= @user.bio %></p>
   </div>
-  <div>
-    <% @recent_posts.each do |post| %>
-      <%= render "shared/post", post: post %>
+  <div class="posts">
+    <% if @user.recent_posts.empty? %>
+      <h2>No posts yet!</h2>
+    <% else %>
+      <h2>Recent Posts:</h2>
+      <ul>
+        <% @user.recent_posts.each do |post| %>
+          <%= link_to "/users/#{post.user.id}/posts/#{post.id}" do %>
+            <li class="post">
+              <h4><%= post.title %></h4>
+              <p><%= post.text[0, 20] + '...' %></p>
+              <span class="interactions">
+                <p>Comments: <%= post.comments_counter %></p>
+                <p>Likes: <%= post.likes_counter %></p>
+              </span>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
     <% end %>
   </div>
-  <div class="d-flex justify-content-center my-2">
-    <button type="button" class="btn btn-outline-dark all_posts"><%= link_to "See all posts", user_posts_path(@user) %></button>
-    <button type="button" class="btn btn-outline-dark"><%= link_to "Create a post", new_user_post_path(@user) %></button>
-  </div>
+
+  <% if @user.posts.length > 0 %>
+    <%= link_to user_posts_path(user_id: @user.id) do %>
+      <button class="btn-view-all-posts">View All Posts</button>
+    <% end %>
+  <% end %>
+  <%= render 'posts/create_post_btn', user_id: @user.id %>
 </section>

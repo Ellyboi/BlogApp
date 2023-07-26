@@ -9,8 +9,8 @@ default: &default
 
 development:
   <<: *default
-  database: BlogApp1_development
+  database: BlogApp2_development
 
 test:
   <<: *default
-  database: BlogApp1_test
+  database: BlogApp2_test
