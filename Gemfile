@@ -14,6 +14,8 @@ gem 'pg', '~> 1.1'
 
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
+gem 'letter_opener'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
