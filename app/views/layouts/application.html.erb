@@ -2,26 +2,46 @@
 <html>
   <head>
     <title>DigitsClick</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css', integrity: 'sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9Jvtx0HhN4KCk', crossorigin: 'anonymous' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <header>
-      <nav>
-        <h1>DigitsClick</h1>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a href="#">DigitsClick</a>
+          <!-- Add your navigation items here -->
+        </div>
       </nav>
     </header>
-    <main>
+    <main class="container mt-4">
+      <% if notice %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
+
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+      <div id="sign-out">
+        <% if user_signed_in? %>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+
       <%= yield %>
     </main>
 
-    <footer>
+    <footer class="container mt-4">
       <p>&copy; <%= Time.now.year %> DigitsClick</p>
     </footer>
+
+    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', integrity: 'sha384-Dziy4iI98EY2WiuV/lwGg2DqQz/ykRBRGYN5MIcRxm6C5lWNe4HLt8c3aTp2rfeJ', crossorigin: 'anonymous' %>
   </body>
 </html>
