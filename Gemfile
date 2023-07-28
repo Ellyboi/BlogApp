@@ -16,6 +16,8 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 
 gem 'letter_opener'
 
+gem 'cancancan', '~> 3.5'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
