@@ -18,6 +18,8 @@ gem 'letter_opener'
 
 gem 'cancancan', '~> 3.5'
 
+gem 'active_model_serializers', '~> 0.10.13'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
