@@ -33,12 +33,13 @@
         <% if user_signed_in? %>
           <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
         <% end %>
+        <br/>
       </div>
 
       <%= yield %>
     </main>
 
-    <footer class="container mt-4">
+    <footer class="container mt-4" id=cont-footer>
       <p>&copy; <%= Time.now.year %> DigitsClick</p>
     </footer>
 
