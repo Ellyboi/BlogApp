@@ -1,7 +1,7 @@
 databases:
-  - name: Digitsclick
-    databaseName: digitsclick
-    user: elijah
+  - name: digitsclick
+    databaseName:digitsclick
+    user: digitsclick
 
 services:
   - type: web
